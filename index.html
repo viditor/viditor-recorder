@@ -6,15 +6,18 @@
   <script>
     window.addEventListener("load", function()
     {
-      var camera = document.getElementById("camera");
+      var camera1 = document.getElementById("camera1");
+      var camera2 = document.getElementById("camera2");
       var play = document.getElementById("play");
       var pause = document.getElementById("pause");
       var stop = document.getElementById("stop");
       var constraints = {audio:true, video:true};
 
       function success(stream) {
-        camera.src = webkitURL.createObjectURL(stream);
-        camera.play();
+        camera1.src = webkitURL.createObjectURL(stream);
+        camera1.play();
+        camera2.src = webkitURL.createObjectURL(stream);
+        camera2.play();
         disableButtons(true, false, false);
       }
 
@@ -75,7 +78,18 @@
       -webkit-filter: sepia(1);
     }
     .blur {
-      +filter: blur(3px);
+      -webkit-filter: blur(3px);
+    }
+
+    #anchor
+    {
+      width: 320px;
+      position: relative;
+    }
+
+    #camera2
+    {
+      -webkit-transform:rotateY(180deg);
     }
   </style>
 </head>
@@ -84,6 +98,13 @@
   <button id="pause">Pause</button>
   <button id="stop">Stop</button>
   <br />
-  <video id="camera"></video>
+  <div id="anchor">
+    <div class="hiding right">
+      <video id="camera1" width="320"></video>
+    </div>
+    <div class="hiding left">
+      <video id="camera2" width="320"></video>
+    </div>
+  </div>
 </body>
 </html>
