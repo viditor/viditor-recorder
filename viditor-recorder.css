@@ -1,0 +1,18 @@
+*
+{
+	margin: 0px;
+}
+
+.grayscale
+{
+	-webkit-filter: grayscale(1);
+}
+.sepia
+{
+	-webkit-filter: sepia(1);
+}
+
+.blur
+{
+	-webkit-filter: blur(3px);
+}
